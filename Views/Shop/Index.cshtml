@@ -34,11 +34,13 @@
                             </div>
                             <div class="sidebar-body">
                                 <ul class="color-list">
-                                    <li><a href="#">Mens <span>(10)</span></a></li>
-                                    <li><a href="#">Womens <span>(05)</span></a></li>
-                                    <li><a href="#">Sports <span>(15)</span></a></li>
-                                    <li><a href="#">Fabric <span>(12)</span></a></li>
-                                    <li><a href="#">Leather <span>(20)</span></a></li>
+                                    @foreach (Category category in Model.Categories)
+                                    {
+                                        <li class="categoryFilter" data-id="@category.Id"><a asp-controller="shop" asp-action="index">@category.Name <span>(@category.Products.Count())</span></a></li>
+
+
+                                    }
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -55,9 +57,9 @@
                                         <form action="#">
                                             <div class="price-input">
                                                 <label for="amount">Price: </label>
-                                                <input type="text" id="amount">
+                                                <input class="rangeInput" type="text" id="amount">
                                             </div>
-                                            <button class="filter-btn">filter</button>
+                                            <button class="filter-btn rangeFilter">filter</button>
                                         </form>
                                     </div>
                                 </div>
@@ -144,7 +146,7 @@
                         </div>
                         <!-- shop product top wrap start -->
                         <!-- product item list start -->
-                        <div class="shop-product-wrap grid-view row mbn-50">
+                        <div class="shop-product-wrap grid-view row mbn-50 shopList">
                             @await Html.PartialAsync("_ShopListPartial",Model.Products)
                             
                         </div>

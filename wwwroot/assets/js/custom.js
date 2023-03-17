@@ -15,8 +15,6 @@
                     arrows: false,
                     asNavFor: '.pro-nav'
                 });
-
-
                 // product details slider nav active
                 $('.pro-nav').slick({
                     slidesToShow: 4,
@@ -24,8 +22,27 @@
                     arrows: false,
                     focusOnSelect: true
                 });
-
             })
     })
+    //$(".categoryFilter").click(function () {
+    //    let categoryId = $('.categoryFilter').attr('data-id');
+
+
+    //})
+
+    $('.rangeFilter').click(function (e) {
+        e.preventDefault();
+
+        let val = $('.rangeInput').val();
+
+        fetch('shop/list?range=' + val)
+            .then(res => {
+                return res.text();
+            })
+            .then(data => {
+                $('.shopList').html(data)
+            })
+    })
+
 
 })
