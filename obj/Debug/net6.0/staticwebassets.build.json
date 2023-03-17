@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cij5tNrnW6b1NoiDtXs1yH8LtpeWiyObCS4wFmCtux4=",
+  "Hash": "IOheHFXBnSvG/64KplOaVvtTmZ+VleuMcIaxJfDExhg=",
   "Source": "JUANBackendProject",
   "BasePath": "_content/JUANBackendProject",
   "Mode": "Default",
@@ -1409,6 +1409,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/js/active.js"
+    },
+    {
+      "Identity": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/js/custom.js",
+      "SourceId": "JUANBackendProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/",
+      "BasePath": "_content/JUANBackendProject",
+      "RelativePath": "assets/js/custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/js/custom.js"
     },
     {
       "Identity": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/js/modernizr-2.8.3.min.js",

@@ -18,6 +18,8 @@
     <None Remove="ViewModels\" />
     <None Remove="ViewModels\HomeViewModels\" />
     <None Remove="Areas\Manage\Controllers\" />
+    <None Remove="Views\Shop\" />
+    <None Remove="ViewModels\ShopViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Data\" />
@@ -34,6 +36,8 @@
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\HomeViewModels\" />
     <Folder Include="Areas\Manage\Controllers\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="ViewModels\ShopViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

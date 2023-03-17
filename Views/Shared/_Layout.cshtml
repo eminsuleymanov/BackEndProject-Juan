@@ -87,12 +87,12 @@
                                     <nav class="desktop-menu">
                                         <ul>
                                             <li class="active">
-                                                <a href="index.html">Home </a>
+                                                <a asp-controller="home" asp-action="index">Home </a>
 
                                             </li>
 
                                             <li>
-                                                <a href="shop.html">Shop </a>
+                                                <a asp-controller="shop" asp-action="index">Shop </a>
 
                                             </li>
                                             <li>
@@ -382,6 +382,17 @@
     <div>
         @RenderBody()
     </div>
+
+
+    <!-- Quick view modal start -->
+    <div class="modal" id="quick_view">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!-- Quick view modal end -->
     <!-- Start Footer Area Wrapper -->
     <footer class="footer-wrapper">
         <!-- footer main area start -->
@@ -581,11 +592,16 @@
     <!-- Scroll to Top End -->
     <!--=======================Javascript============================-->
     <!--=== All Vendor Js ===-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="~/assets/js/vendor.js"></script>
     <!--=== All Plugins Js ===-->
     <script src="~/assets/js/plugins.js"></script>
     <!--=== Active Js ===-->
     <script src="~/assets/js/active.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+
+
 </body>
 
 

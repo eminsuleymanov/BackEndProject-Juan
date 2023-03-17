@@ -1,0 +1,188 @@
+﻿@model ShopVM
+  <!-- main wrapper start -->
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area bg-img" data-bg="assets/img/banner/breadcrumb-banner.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap text-center">
+                        <nav aria-label="breadcrumb">
+                            <h1 class="breadcrumb-title">shop</h1>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">shop</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- page main wrapper start -->
+    <div class="shop-main-wrapper section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- sidebar area start -->
+                <div class="col-lg-3 order-2 order-lg-1">
+                    <div class="sidebar-wrapper">
+                        <!-- single sidebar start -->
+                        <div class="sidebar-single">
+                            <div class="sidebar-title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="sidebar-body">
+                                <ul class="color-list">
+                                    <li><a href="#">Mens <span>(10)</span></a></li>
+                                    <li><a href="#">Womens <span>(05)</span></a></li>
+                                    <li><a href="#">Sports <span>(15)</span></a></li>
+                                    <li><a href="#">Fabric <span>(12)</span></a></li>
+                                    <li><a href="#">Leather <span>(20)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sidebar end -->
+                        <!-- single sidebar start -->
+                        <div class="sidebar-single">
+                            <div class="sidebar-title">
+                                <h3>filter by price</h3>
+                            </div>
+                            <div class="sidebar-body">
+                                <div class="price-range-wrap">
+                                    <div class="price-range" data-min="20" data-max="400"></div>
+                                    <div class="range-slider">
+                                        <form action="#">
+                                            <div class="price-input">
+                                                <label for="amount">Price: </label>
+                                                <input type="text" id="amount">
+                                            </div>
+                                            <button class="filter-btn">filter</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single sidebar end -->
+                        <!-- single sidebar start -->
+                        <div class="sidebar-single">
+                            <div class="sidebar-title">
+                                <h3>color</h3>
+                            </div>
+                            <div class="sidebar-body">
+                                <ul class="color-list">
+                                    <li><a href="#">gold <span>(05)</span></a></li>
+                                    <li><a href="#">green <span>(12)</span></a></li>
+                                    <li><a href="#">blue <span>(14)</span></a></li>
+                                    <li><a href="#">white <span>(20)</span></a></li>
+                                    <li><a href="#">red <span>(08)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sidebar end -->
+                        <!-- single sidebar start -->
+                        <div class="sidebar-single">
+                            <div class="sidebar-title">
+                                <h3>size</h3>
+                            </div>
+                            <div class="sidebar-body">
+                                <ul class="size-list">
+                                    <li><a href="#">L <span>(05)</span></a></li>
+                                    <li><a href="#">M <span>(06)</span></a></li>
+                                    <li><a href="#">S <span>(02)</span></a></li>
+                                    <li><a href="#">XL <span>(01)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sidebar end -->
+                        <!-- single sidebar start -->
+                        <div class="sidebar-single">
+                            <div class="sidebar-banner">
+                                <a href="#">
+                                    <img src="assets/img/banner/banner_left.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- single sidebar end -->
+                    </div>
+                </div>
+                <!-- sidebar area end -->
+                <!-- shop main wrapper start -->
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="shop-product-wrapper">
+                        <!-- shop product top wrap start -->
+                        <div class="shop-top-bar">
+                            <div class="row">
+                                <div class="col-xl-5 col-lg-4 col-md-3 order-2 order-md-1">
+                                    <div class="top-bar-left">
+                                        <div class="product-view-mode">
+                                            <a class="active" href="#" data-target="grid-view"><i class="fa fa-th"></i></a>
+                                            <a href="#" data-target="list-view"><i class="fa fa-list"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-7 col-lg-8 col-md-9 order-1 order-md-2">
+                                    <div class="top-bar-right">
+                                        <div class="product-short">
+                                            <p>Sort By : </p>
+                                            <select class="nice-select" name="sortby">
+                                                <option value="trending">Relevance</option>
+                                                <option value="sales">Name (A - Z)</option>
+                                                <option value="sales">Name (Z - A)</option>
+                                                <option value="rating">Price (Low &gt; High)</option>
+                                                <option value="date">Rating (Lowest)</option>
+                                                <option value="price-asc">Model (A - Z)</option>
+                                                <option value="price-asc">Model (Z - A)</option>
+                                            </select>
+                                        </div>
+                                        <div class="product-amount">
+                                            <p>Showing 1–16 of 21 results</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- shop product top wrap start -->
+                        <!-- product item list start -->
+                        <div class="shop-product-wrap grid-view row mbn-50">
+                            @await Html.PartialAsync("_ShopListPartial",Model.Products)
+                            
+                        </div>
+                        <!-- product item list end -->
+                        <!-- start pagination area -->
+                        <div class="paginatoin-area text-center mt-45">
+                            <ul class="pagination-box">
+                                @if (Model.Products.PageIndex > 1)
+                                {
+                                    <li>
+                                        <a class="Previous" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(Model.Products.PageIndex-1)"><i class="ion-ios-arrow-left"></i>
+                                        </a>
+                                    </li>
+                                }
+                                @for (int i = Model.Products.StartPage; i < Model.Products.EndPage; i++)
+                                {
+                                    <li class="@(Model.Products.PageIndex == i ? "active":"")">
+                                        <a asp-controller="shop" asp-action="index" asp-route-pageIndex="@i">@i</a>
+                                    </li>
+
+                                }
+                                @if (Model.Products.PageIndex < Model.Products.TotalPage)
+                                {
+                                    <li><a class="Next" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(Model.Products.PageIndex+1)"><i class="ion-ios-arrow-right"></i></a></li>
+
+
+                                }
+
+                            </ul>
+                            
+                        </div>
+                        <!-- end pagination area -->
+                    </div>
+                </div>
+                <!-- shop main wrapper end -->
+            </div>
+        </div>
+    </div>
+    <!-- page main wrapper end -->
+</main>
+<!-- main wrapper end -->

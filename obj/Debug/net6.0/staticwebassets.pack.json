@@ -329,6 +329,10 @@
       "PackagePath": "staticwebassets/assets/js/active.js"
     },
     {
+      "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/js/custom.js",
+      "PackagePath": "staticwebassets/assets/js/custom.js"
+    },
+    {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/js/modernizr-2.8.3.min.js",
       "PackagePath": "staticwebassets/assets/js/modernizr-2.8.3.min.js"
     },
