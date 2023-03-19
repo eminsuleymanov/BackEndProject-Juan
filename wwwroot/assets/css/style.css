@@ -1186,7 +1186,7 @@ fieldset {
       transform: rotate(180deg); }
 
 .offcanvas-search-box {
-  height: 100vh;
+  height: 60vh;
   padding: 0 30px;
   display: -webkit-box;
   display: -ms-flexbox;
