@@ -25,6 +25,8 @@
     <None Remove="Views\Shared\Components\Header\" />
     <None Remove="Views\Shared\Components\Footer\" />
     <None Remove="ViewComponents\" />
+    <None Remove="ViewModels\BasketViewModels\" />
+    <None Remove="ViewModels\HeaderViewComponentVM\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Data\" />
@@ -48,6 +50,8 @@
     <Folder Include="Views\Shared\Components\Header\" />
     <Folder Include="Views\Shared\Components\Footer\" />
     <Folder Include="ViewComponents\" />
+    <Folder Include="ViewModels\BasketViewModels\" />
+    <Folder Include="ViewModels\HeaderViewComponentVM\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

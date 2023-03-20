@@ -30,7 +30,7 @@
             </div>
             <div class="product-action-link">
                 <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                <a class="addTobasket" data-id="@product.Id" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
                 <a asp-controller="Product" asp-action="ProductModal" asp-route-id="@product.Id" class="productModal" data-toggle="modal" data-target="#quick_view">
                     <span data-toggle="tooltip"
                           title="Quick View"><i class="ion-ios-eye-outline"></i></span>

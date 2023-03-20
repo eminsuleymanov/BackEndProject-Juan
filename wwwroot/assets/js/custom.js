@@ -19,6 +19,21 @@
 
     })
 
+    $(".addTobasket").click(function (e) {
+        e.preventDefault();
+        let productId = $(this).data('id');
+        fetch("basket/AddToBasket?id=" + productId)
+            .then(res => {
+                return res.text();
+
+            })
+            .then(data => {
+                $(".minicart-content-box").html(data);
+            })
+
+
+    })
+
 
     $(".productModal").click(function (e) {
         e.preventDefault();
@@ -26,7 +41,6 @@
         fetch(url)
             .then(res => {
                 return res.text();
-
             })
             .then(data => {
                 $('.modal-content').html(data);

@@ -10,6 +10,11 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(conString));
 
 
 builder.Services.AddScoped<ILayoutService, LayoutService>();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+});
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 app.UseStaticFiles();
 
