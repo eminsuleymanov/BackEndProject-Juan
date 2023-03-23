@@ -27,6 +27,8 @@
     <None Remove="ViewComponents\" />
     <None Remove="ViewModels\BasketViewModels\" />
     <None Remove="ViewModels\HeaderViewComponentVM\" />
+    <None Remove="Views\Product\" />
+    <None Remove="Views\Basket\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Data\" />
@@ -52,6 +54,8 @@
     <Folder Include="ViewComponents\" />
     <Folder Include="ViewModels\BasketViewModels\" />
     <Folder Include="ViewModels\HeaderViewComponentVM\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Basket\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

@@ -8,25 +8,33 @@ namespace JUANBackendProject.ViewModels
             PageIndex = pageindex;
             TotalPage = totalPage;
 
-            int start = PageIndex - 1;
-            int end = PageIndex + 1;
-
-            if (start <= 0)
+            if (totalPage >= 5)
             {
-                end = end - (start - 1);
-                start = 1;
-            }
+                int start = PageIndex - 1;
+                int end = PageIndex + 1;
 
-            if (end > TotalPage)
+                if (start <= 0)
+                {
+                    end = end - (start - 1);
+                    start = 1;
+                }
+
+                if (end > TotalPage)
+                {
+                    end = TotalPage;
+                    start = totalPage - 2;
+                }
+
+                StartPage = start;
+                EndPage = end;   
+            }
+            else
             {
-                end = TotalPage;
-                start = totalPage - 2;
+                StartPage = 1;
+                EndPage = totalPage;
             }
-
-            StartPage = start;
-            EndPage = end;
-
             this.AddRange(queries);
+
         }
 
         public int PageIndex { get; }

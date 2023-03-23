@@ -1,0 +1,19 @@
+﻿@model List<BasketVM>
+@foreach (BasketVM basketVM in Model)
+{
+    <tr>
+        <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="~/assets/img/product/@basketVM.Image" alt="Product" /></a></td>
+        <td class="pro-title"><a href="#">@basketVM.Title</a></td>
+        <td class="pro-price"><span>$@basketVM.Price</span></td>
+        <td class="pro-quantity">
+            <div class="pro-qty">
+               
+                <input data-productId="@basketVM.Id" class="productCount" type="text" value="@basketVM.Count">
+                
+
+            </div>
+        </td>
+        <td class="pro-subtotal"><span>$@(basketVM.Count * basketVM.Price)</span></td>
+        <td class="pro-remove basketdelete"><a asp-controller="basket" asp-action="deleteFromBasket" asp-route-id="@basketVM.Id" data-id="@basketVM.Id"><i class="fa fa-trash-o"></i></a></td>
+    </tr>
+}

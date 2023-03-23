@@ -22,7 +22,24 @@ namespace JUANBackendProject.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            string basket = HttpContext.Request.Cookies["basket"];
+            List<BasketVM> basketVMs = null;
+            if (basket != null)
+            {
+                basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            }
+            else
+            {
+                basketVMs = new List<BasketVM>();
+            }
+            foreach (BasketVM basketVM in basketVMs)
+            {
+                basketVM.Title = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).Title;
+                basketVM.Image = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).MainImage;
+                basketVM.Price = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).Price;
+            }
+            return View(basketVMs);
+            
         }
 
         public async Task<IActionResult> AddToBasket(int? id)
@@ -71,6 +88,9 @@ namespace JUANBackendProject.Controllers
                     basketVM.Image = product.MainImage;
                 }
             }
+            //int count = basketVMs.Sum(b => b.Count);
+            //ViewBag.CartCount = count;
+
 
             return PartialView("_BasketPartial", basketVMs);
 
@@ -80,6 +100,41 @@ namespace JUANBackendProject.Controllers
         {
             return Json(JsonConvert.DeserializeObject<List<BasketVM>>(HttpContext.Request.Cookies["basket"]));
 
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteFromBasket(int id)
+        {
+            if (id == null) return BadRequest();
+            if (!await _context.Products.AnyAsync(p => p.Id == id)) return NotFound();
+
+            string basket = HttpContext.Request.Cookies["basket"];
+            
+            if (string.IsNullOrWhiteSpace(basket))
+            {
+                return BadRequest();               
+            }
+
+            List<BasketVM> basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM basketVM = basketVMs.Find(b => b.Id == id);
+
+            if (basketVM==null) return NotFound();
+
+
+            basketVMs.Remove(basketVM);
+            foreach (var item in basketVMs)
+            {
+                var product = await _context.Products.FindAsync(item.Id);
+                item.Title = product.Title;
+                item.Image = product.MainImage;
+                item.Price = product.Price;
+            }
+
+            basket = JsonConvert.SerializeObject(basketVMs);
+            HttpContext.Response.Cookies.Append("basket", basket);
+
+            return PartialView("_BasketPartial",basketVMs);
         }
 
 

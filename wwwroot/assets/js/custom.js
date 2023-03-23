@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     $("#searchInput").keyup(function () {
         let search = $(this).val();
         //console.log(search);
@@ -19,6 +20,9 @@
 
     })
 
+    
+    $(".notification").html($(".cartcount").text());
+
     $(".addTobasket").click(function (e) {
         e.preventDefault();
         let productId = $(this).data('id');
@@ -29,10 +33,53 @@
             })
             .then(data => {
                 $(".minicart-content-box").html(data);
+                //let cartCount  = $(".cartcount").text()
+                $(".notification").html($(".cartcount").text())  
+                //let cartCount = $(".notification").html();
+                //cartCount = cartCount === "" ? 0 : parseInt(cartCount);
+                //$(".notification").html(cartCount + 1);
+                //let count = parseInt($(".notification").text()) || 0; 
+                //$(".notification").text(count + 1);
             })
 
 
     })
+
+    $(document).on('click', ".basketdelete", function (e) {
+        e.preventDefault();
+
+        let productId = $(this).data('id');
+
+        fetch("basket/DeleteFromBasket?id=" + productId, {
+            method: 'POST'
+        })
+            .then(res => {
+                return res.text();
+            })
+            .then(data => {
+
+                $(".minicart-content-box").html(data);
+                let cartCount = $(".cartcount").text()
+                $(".notification").html($(".cartcount").text())
+                //$(".productTable").html(data);
+                
+            })
+    });
+    $(document).on('keyup', '.productCount', function (e) {
+        e.preventDefault();
+        let count = $(this).val();
+        let productId = $(this).attr('data-productId');
+
+        fetch('/Product/ChangeBasketProductCount/' + productId + '?count=' + count).then(res => {
+            return res.text();
+        }).then(data => {
+            $(".productTable").html(data);
+             
+        })
+
+    })
+
+
 
 
     $(".productModal").click(function (e) {
