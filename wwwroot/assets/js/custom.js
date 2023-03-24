@@ -45,14 +45,14 @@
 
     })
 
+    console.log(window.location.pathname)
+
     $(document).on('click', ".basketdelete", function (e) {
         e.preventDefault();
 
-        let productId = $(this).data('id');
+        let url = $(this).attr('href');
 
-        fetch("basket/DeleteFromBasket?id=" + productId, {
-            method: 'POST'
-        })
+        fetch(url)
             .then(res => {
                 return res.text();
             })
@@ -62,9 +62,41 @@
                 let cartCount = $(".cartcount").text()
                 $(".notification").html($(".cartcount").text())
                 //$(".productTable").html(data);
+                //if (window.location.pathname == "/basket") {
+                    fetch("basket/RefreshIndex")
+                      .then(res1 => {
+                          return res1.text();
+                      })
+                      .then(data1 => {
+                          $(".productTable").html(data1);
+
+                      })
+                        
+                
                 
             })
+        
+                 
     });
+
+    $(document).on('click', ".cartdelete", function (e) {
+        e.preventDefault();
+
+        let url = $(this).attr('href');
+        fetch(url).then(res => res.text()).then(data =>
+        {
+            $(".productTable").html(data);
+            fetch('/basket/RefreshBasket').then(res1 => res1.text())
+                .then(data1 => {
+                    $(".minicart-content-box").html(data1);
+                    let cartCount = $(".cartcount").text()
+                    $(".notification").html($(".cartcount").text())
+                })
+        })
+
+    })
+
+
     $(document).on('keyup', '.productCount', function (e) {
         e.preventDefault();
         let count = $(this).val();
@@ -74,6 +106,12 @@
             return res.text();
         }).then(data => {
             $(".productTable").html(data);
+            fetch('/Product/RefreshCartProductCount').then(res1 => res1.text())
+                .then(refreshdata => {
+                    $(".minicart-content-box").html(refreshdata);
+                    let cartCount = $(".cartcount").text()
+                    $(".notification").html($(".cartcount").text())
+                })
              
         })
 
@@ -106,23 +144,23 @@
                 });
             })
     })
-    $(".categoryFilter").click(function (e) {
-        e.preventDefault();
-        let categoryId = $('.categoryFilter').data('id');
+    //$(".categoryFilter").click(function (e) {
+    //    e.preventDefault();
+    //    let categoryId = $('.categoryFilter').data('id');
 
-        let val = $('.rangeInput').val();
+    //    let val = $('.rangeInput').val();
 
-        //let categoryId = $('.categoryFilter').attr('data-id');
-        fetch('shop/filter?categoryId=' + categoryId + '&range=' + val)
-            .then(res => {
-                return res.text();
-            })
-            .then(data => {
-                console.log(categoryId);
-                $('.shopList').html(data)
-            })
+    //    //let categoryId = $('.categoryFilter').attr('data-id');
+    //    fetch('shop/filter?categoryId=' + categoryId + '&range=' + val)
+    //        .then(res => {
+    //            return res.text();
+    //        })
+    //        .then(data => {
+    //            console.log(categoryId);
+    //            $('.shopList').html(data)
+    //        })
 
-    })
+    //})
     //$(document).on('click', '.page-link', function (event) {
     //    event.preventDefault();
     //    var url = $(this).attr('href');
@@ -141,11 +179,13 @@
     
     $('.rangeFilter').click(function (e) {
         e.preventDefault();
-        var urlParams = new URLSearchParams(window.location.search);
-        var pageIndex = urlParams.get('pageIndex');
+       
         let val = $('.rangeInput').val();
 
-        fetch('shop/filter?pageIndex=' + pageIndex + '&range=' + val)
+        let pageIndex = $('.pagination-box').find('.active').find('a').data('page');
+
+
+        fetch('shop/filter?range=' + val + '&pageIndex=' + pageIndex)
             .then(res => {
                 return res.text();
             })

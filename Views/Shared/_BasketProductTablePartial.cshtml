@@ -14,6 +14,6 @@
             </div>
         </td>
         <td class="pro-subtotal"><span>$@(basketVM.Count * basketVM.Price)</span></td>
-        <td class="pro-remove basketdelete"><a asp-controller="basket" asp-action="deleteFromBasket" asp-route-id="@basketVM.Id" data-id="@basketVM.Id"><i class="fa fa-trash-o"></i></a></td>
+        <td class="pro-remove "><a class="cartdelete" asp-controller="basket" asp-action="deleteFromCart" asp-route-id="@basketVM.Id" data-productid="@basketVM.Id"><i class="fa fa-trash-o"></i></a></td>
     </tr>
 }

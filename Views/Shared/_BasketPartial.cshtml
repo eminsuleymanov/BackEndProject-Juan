@@ -18,7 +18,7 @@
                         <span class="cart-price">$@basketVM.Price</span>
                     </p>
                 </div>
-                <button asp-controller="basket" asp-action="deleteFromBasket" asp-route-id="@basketVM.Id" data-id="@basketVM.Id" class="minicart-remove basketdelete"><i class="ion-android-close"></i></button>
+                <a asp-controller="basket" asp-action="deleteFromBasket" asp-route-id="@basketVM.Id" data-id="@basketVM.Id" class="minicart-remove basketdelete"><i class="ion-android-close"></i></a>
             </li>
 
         }

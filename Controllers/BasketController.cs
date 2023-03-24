@@ -8,6 +8,7 @@ using JUANBackendProject.ViewModels.BasketViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using NuGet.ContentModel;
 
 namespace JUANBackendProject.Controllers
 {
@@ -103,8 +104,8 @@ namespace JUANBackendProject.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> DeleteFromBasket(int id)
+        [HttpGet]
+        public async Task<IActionResult> DeleteFromBasket(int? id)
         {
             if (id == null) return BadRequest();
             if (!await _context.Products.AnyAsync(p => p.Id == id)) return NotFound();
@@ -136,6 +137,87 @@ namespace JUANBackendProject.Controllers
 
             return PartialView("_BasketPartial",basketVMs);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> RefreshBasket()
+        {
+            string basket = HttpContext.Request.Cookies["basket"];
+
+            if (string.IsNullOrWhiteSpace(basket))
+            {
+                return BadRequest();
+            }
+
+            List<BasketVM> basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+
+            foreach (var item in basketVMs)
+            {
+                var product = await _context.Products.FindAsync(item.Id);
+                item.Title = product.Title;
+                item.Image = product.MainImage;
+                item.Price = product.Price;
+            }
+
+            return PartialView("_BasketPartial", basketVMs);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RefreshIndex()
+        {
+            string basket = HttpContext.Request.Cookies["basket"];
+
+            if (string.IsNullOrWhiteSpace(basket))
+            {
+                return BadRequest();
+            }
+
+            List<BasketVM> basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+
+            foreach (var item in basketVMs)
+            {
+                var product = await _context.Products.FindAsync(item.Id);
+                item.Title = product.Title;
+                item.Image = product.MainImage;
+                item.Price = product.Price;
+            }
+
+            return PartialView("_BasketProductTablePartial", basketVMs);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteFromCart(int? id)
+        {
+            if (id == null) return BadRequest();
+            if (!await _context.Products.AnyAsync(p => p.Id == id)) return NotFound();
+
+            string basket = HttpContext.Request.Cookies["basket"];
+
+            if (string.IsNullOrWhiteSpace(basket))
+            {
+                return BadRequest();
+            }
+
+            List<BasketVM> basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM basketVM = basketVMs.Find(b => b.Id == id);
+
+            if (basketVM == null) return NotFound();
+
+
+            basketVMs.Remove(basketVM);
+            foreach (var item in basketVMs)
+            {
+                var product = await _context.Products.FindAsync(item.Id);
+                item.Title = product.Title;
+                item.Image = product.MainImage;
+                item.Price = product.Price;
+            }
+
+            basket = JsonConvert.SerializeObject(basketVMs);
+            HttpContext.Response.Cookies.Append("basket", basket);
+
+            return PartialView("_BasketProductTablePartial", basketVMs);
+
+        } 
 
 
     }

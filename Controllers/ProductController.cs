@@ -67,6 +67,9 @@ namespace JUANBackendProject.Controllers
             return View(product);
 
         }
+
+
+
         public IActionResult ChangeBasketProductCount(int? id, int count)
         {
             if (id == null)
@@ -98,6 +101,30 @@ namespace JUANBackendProject.Controllers
                 return BadRequest();
             }
         }
+        public IActionResult RefreshCartProductCount()
+        {
+            string basket = HttpContext.Request.Cookies["basket"];
+            List<BasketVM> basketVMs = null;
+            if (basket != null)
+            {
+                basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+                
+                basket = JsonConvert.SerializeObject(basketVMs);
+                HttpContext.Response.Cookies.Append("basket", basket);
+                foreach (BasketVM basketVM in basketVMs)
+                {
+                    basketVM.Title = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).Title;
+                    basketVM.Image = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).MainImage;
+                    basketVM.Price = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id).Price;
+                }
+                return PartialView("_BasketPartial", basketVMs);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
 
