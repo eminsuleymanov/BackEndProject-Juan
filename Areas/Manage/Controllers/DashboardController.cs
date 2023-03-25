@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JUANBackendProject.Areas.Manage.Controllers
 {
+    [Area("manage")]
     public class DashboardController : Controller
     {
-        // GET: /<controller>/
+        
         public IActionResult Index()
         {
             return View();

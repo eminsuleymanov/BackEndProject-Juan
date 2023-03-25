@@ -24,10 +24,11 @@ namespace JUANBackendProject.Controllers
             {
                 Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
                 Products = await _context.Products.Where(s => s.IsDeleted == false).ToListAsync(),
+                //Settings = await _context.Settings.Where(s => s.Key == (string) && s.Value == (string))
 
             };
 
-            return View(vm);
+              return View(vm);
         }
 
     }

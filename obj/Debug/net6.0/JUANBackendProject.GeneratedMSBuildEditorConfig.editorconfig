@@ -16,6 +16,42 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Brand/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0JyYW5kL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Brand/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0JyYW5kL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Brand/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0JyYW5kL0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Brand/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0JyYW5kL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Brand/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0JyYW5kL1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL0Rhc2hib2FyZC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL1NoYXJlZC9fTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL19WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Areas/Manage/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvTWFuYWdlL1ZpZXdzL19WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/Views/Basket/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFza2V0L0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -29,6 +29,9 @@
     <None Remove="ViewModels\HeaderViewComponentVM\" />
     <None Remove="Views\Product\" />
     <None Remove="Views\Basket\" />
+    <None Remove="Areas\Manage\Views\Shared\" />
+    <None Remove="Areas\Manage\Views\Dashboard\" />
+    <None Remove="Areas\Manage\Views\Brand\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Data\" />
@@ -56,9 +59,14 @@
     <Folder Include="ViewModels\HeaderViewComponentVM\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Basket\" />
+    <Folder Include="Areas\Manage\Views\Shared\" />
+    <Folder Include="wwwroot\manage\" />
+    <Folder Include="Areas\Manage\Views\Dashboard\" />
+    <Folder Include="Areas\Manage\Views\Brand\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\manage\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
