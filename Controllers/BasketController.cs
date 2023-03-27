@@ -183,6 +183,7 @@ namespace JUANBackendProject.Controllers
 
             return PartialView("_BasketProductTablePartial", basketVMs);
         }
+        
 
         [HttpGet]
         public async Task<IActionResult> DeleteFromCart(int? id)

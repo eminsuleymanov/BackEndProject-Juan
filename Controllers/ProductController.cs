@@ -23,9 +23,10 @@ namespace JUANBackendProject.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
-
+       
         public async Task<IActionResult> ProductModal(int? id)
         {
 
@@ -124,6 +125,30 @@ namespace JUANBackendProject.Controllers
                 return BadRequest();
             }
         }
+        public IActionResult RefreshCartTotal()
+        {
+            string basket = HttpContext.Request.Cookies["basket"];
+            List<BasketVM> basketVMs = null;
+            decimal totalPrice = 0;
+            if (basket != null)
+            {
+                basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+                foreach (BasketVM basketVM in basketVMs)
+                {
+                    Product product = _context.Products.FirstOrDefault(p => p.Id == basketVM.Id);
+                    if (product != null)
+                    {
+                        basketVM.Title = product.Title;
+                        basketVM.Image = product.MainImage;
+                        basketVM.Price = product.Price;
+                        totalPrice += (basketVM.Count * (decimal)product.Price);
+                    }
+                }
+            }
+
+            return PartialView("_CartTotalPartial",basketVMs);
+        }
+
 
     }
 }

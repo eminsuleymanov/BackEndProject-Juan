@@ -1,0 +1,90 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-lg-10">
+        <h1 class="h3 mb-0 text-gray-800 mb-4">Create Product</h1>
+    </div>
+
+</div>
+
+<div>
+    <form asp-action="Create" asp-area="manage" asp-controller="product" method="post" enctype="multipart/form-data">
+        <div class="mb-3 w-50">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control">
+            <span style="color : red" asp-validation-for="Title"></span>
+        </div>
+        <div class="my-3 w-50">
+            <div class="input-group mb-3">
+                <select asp-for="BrandId" class="custom-select" asp-items="new SelectList(ViewBag.Brands,nameof(Brand.Id), nameof(Brand.Name))">
+                </select>
+                <span asp-validation-for="BrandId" class="text text-danger"></span>
+            </div>
+        </div>
+
+        <div class="my-3 ">
+            <div class="input-group mb-3 w-50">
+                <select asp-for="CategoryId" class="custom-select" asp-items="new SelectList(ViewBag.Categories,nameof(Category.Id), nameof(Category.Name))">
+                </select>
+                <span asp-validation-for="CategoryId" class="text text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 w-50">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control">
+            <span class="text text-danger" asp-validation-for="Price"></span>
+        </div>
+        <div class="mb-3 w-50">
+            <label asp-for="DiscountedPrice" class="form-label"></label>
+            <input asp-for="DiscountedPrice" class="form-control">
+            <span class="text text-danger" asp-validation-for="DiscountedPrice"></span>
+        </div>
+
+        <div class="mb-3 w-50">
+            <label asp-for="Count" class="form-label"></label>
+            <input asp-for="Count" class="form-control">
+            <span class="text text-danger" asp-validation-for="Count"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="IsNewArrival" class="form-check-input">
+            <label asp-for="IsNewArrival" class="form-check-label"></label>
+            <span class="text text-danger" asp-validation-for="IsNewArrival"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="IsBestSeller" class="form-check-input">
+            <label asp-for="IsBestSeller" class="form-check-label"></label>
+            <span class="text text-danger" asp-validation-for="IsBestSeller"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="IsFeatured" class="form-check-input">
+            <label asp-for="IsFeatured" class="form-check-label"></label>
+            <span class="text text-danger" asp-validation-for="IsFeatured"></span>
+        </div>
+        <div class="mb-3 w-50">
+            <label asp-for="MainFile" class="form-label"></label>
+            <input asp-for="MainFile" class="form-control" accept="image/jpeg">
+            <span class="text text-danger" asp-validation-for="MainFile"></span>
+        </div>
+
+        <div class="mb-3 w-50">
+            <label asp-for="Files" class="form-label"></label>
+            <input asp-for="Files" class="form-control">
+            <span class="text text-danger" asp-validation-for="Files"></span>
+        </div>
+        <div class="mb-3 w-50">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+            <span class="text text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="mb-3 w-50">
+            <label asp-for="FullDescription" class="form-label"></label>
+            <textarea class="form-control" asp-for="FullDescription" rows="3"></textarea>
+            <span class="text text-danger" asp-validation-for="FullDescription"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @Html.ValidationSummary()
+</div>

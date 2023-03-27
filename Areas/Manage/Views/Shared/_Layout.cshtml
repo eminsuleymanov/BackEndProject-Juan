@@ -60,6 +60,14 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Brand</span>
                 </a>
+                <a class="nav-link" asp-area="manage" asp-controller="category" asp-action="index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Category</span>
+                </a>
+                <a class="nav-link" asp-area="manage" asp-controller="product" asp-action="index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Product</span>
+                </a>
             </li>
 
 
@@ -294,7 +302,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                   @RenderBody()
+                    @RenderBody()
 
                 </div>
                 <!-- /.container-fluid -->
@@ -344,12 +352,15 @@
     <!-- Bootstrap core JavaScript-->
     <script src="~/manage/vendor/jquery/jquery.min.js"></script>
     <script src="~/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", false)
 
     <!-- Core plugin JavaScript-->
     <script src="~/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="~/manage/js/sb-admin-2.min.js"></script>
+    <script src="~/manage/js/custom.js"></script>
+
 
     <!-- Page level plugins -->
     <script src="~/manage/vendor/chart.js/Chart.min.js"></script>

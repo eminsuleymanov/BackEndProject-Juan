@@ -15,21 +15,28 @@ namespace JUANBackendProject.Models
         public double DiscountedPrice { get; set; }
         public int Count { get; set; }
         [StringLength(1000)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [StringLength(2000)]
-        public string FullDescription { get; set; }
+        public string? FullDescription { get; set; }
         public List<ProductImage>? ProductImages { get; set; }
         public bool IsNewArrival { get; set; }
         public bool IsBestSeller { get; set; }
         public bool IsFeatured { get; set; }
         [StringLength(255)]
-        [Required]
+        
         public string? MainImage { get; set; }
-
+        
         public int BrandId { get; set; }
         public Brand? Brand { get; set; }
+        
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+        [NotMapped]
+        public List<IFormFile>? Files { get; set; }
+
+        [NotMapped]
+        
+        public IFormFile? MainFile { get; set; }
     }
 }
 

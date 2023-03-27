@@ -47,6 +47,7 @@ namespace JUANBackendProject.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Brand brand)
         {
             if (!ModelState.IsValid)
@@ -81,6 +82,7 @@ namespace JUANBackendProject.Areas.Manage.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, Brand brand)
         {
             if (!ModelState.IsValid) return BadRequest();

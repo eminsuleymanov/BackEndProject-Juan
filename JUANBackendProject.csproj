@@ -32,10 +32,12 @@
     <None Remove="Areas\Manage\Views\Shared\" />
     <None Remove="Areas\Manage\Views\Dashboard\" />
     <None Remove="Areas\Manage\Views\Brand\" />
+    <None Remove="Areas\Manage\Views\Category\" />
+    <None Remove="Extensions\" />
+    <None Remove="Helpers\" />
+    <None Remove="Areas\Manage\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Manage\Data\" />
-    <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Areas\Manage\Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
@@ -63,6 +65,10 @@
     <Folder Include="wwwroot\manage\" />
     <Folder Include="Areas\Manage\Views\Dashboard\" />
     <Folder Include="Areas\Manage\Views\Brand\" />
+    <Folder Include="Areas\Manage\Views\Category\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Areas\Manage\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

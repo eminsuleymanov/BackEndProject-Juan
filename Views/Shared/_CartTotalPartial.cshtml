@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BasketVM>
+
+<tr>
+    <td>Sub Total</td>
+    <td>$@Model.Sum(c=>c.Count*c.Price)</td>
+</tr>
+
+<tr class="total">
+    <td>Total</td>
+    <td class="total-amount">$@(@Model.Sum(c => c.Count * c.Price))</td>
+</tr>

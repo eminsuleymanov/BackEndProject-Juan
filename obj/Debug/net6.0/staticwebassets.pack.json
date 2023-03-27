@@ -225,6 +225,14 @@
       "PackagePath": "staticwebassets/assets/img/paypal-card.jpg"
     },
     {
+      "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/20230327014617309-dcb62c2b-d2f4-4745-b2bc-c97c3de6b791-Flow temp.jpeg",
+      "PackagePath": "staticwebassets/assets/img/product/20230327014617309-dcb62c2b-d2f4-4745-b2bc-c97c3de6b791-Flow temp.jpeg"
+    },
+    {
+      "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/20230327014617317-6b0630d1-2b03-4da4-bd83-2a927d62644a-Flow temp.jpeg",
+      "PackagePath": "staticwebassets/assets/img/product/20230327014617317-6b0630d1-2b03-4da4-bd83-2a927d62644a-Flow temp.jpeg"
+    },
+    {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/pro-small-1.jpg",
       "PackagePath": "staticwebassets/assets/img/product/pro-small-1.jpg"
     },
@@ -287,10 +295,6 @@
     {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/product-9.jpg",
       "PackagePath": "staticwebassets/assets/img/product/product-9.jpg"
-    },
-    {
-      "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/product-details-img1.jpg",
-      "PackagePath": "staticwebassets/assets/img/product/product-details-img1.jpg"
     },
     {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/assets/img/product/product-details-img2.jpg",
@@ -379,6 +383,10 @@
     {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/manage/img/undraw_rocket.svg",
       "PackagePath": "staticwebassets/manage/img/undraw_rocket.svg"
+    },
+    {
+      "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/manage/js/custom.js",
+      "PackagePath": "staticwebassets/manage/js/custom.js"
     },
     {
       "Id": "/Users/eminsuleymanov/Desktop/JuanTest/JUANBackendProject/wwwroot/manage/js/demo/chart-area-demo.js",

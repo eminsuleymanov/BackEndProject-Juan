@@ -150,7 +150,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-5">
                     <div class="product-banner">
                         <a href="#">
-                            <img src="~/assets/img/banner/banner-3.jpg" alt="product banner">
+                            <img src="~/assets/img/banner/@Model.Settings.FirstOrDefault(s => s.Key == "TopSellerBanner").Value" alt="product banner">
                         </a>
                     </div>
                 </div>

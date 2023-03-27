@@ -33,13 +33,9 @@
             })
             .then(data => {
                 $(".minicart-content-box").html(data);
-                //let cartCount  = $(".cartcount").text()
+                
                 $(".notification").html($(".cartcount").text())  
-                //let cartCount = $(".notification").html();
-                //cartCount = cartCount === "" ? 0 : parseInt(cartCount);
-                //$(".notification").html(cartCount + 1);
-                //let count = parseInt($(".notification").text()) || 0; 
-                //$(".notification").text(count + 1);
+                
             })
 
 
@@ -61,8 +57,6 @@
                 $(".minicart-content-box").html(data);
                 let cartCount = $(".cartcount").text()
                 $(".notification").html($(".cartcount").text())
-                //$(".productTable").html(data);
-                //if (window.location.pathname == "/basket") {
                     fetch("basket/RefreshIndex")
                       .then(res1 => {
                           return res1.text();
@@ -71,12 +65,9 @@
                           $(".productTable").html(data1);
 
                       })
-                        
-                
-                
+                  
             })
-        
-                 
+                  
     });
 
     $(document).on('click', ".cartdelete", function (e) {
@@ -111,6 +102,10 @@
                     $(".minicart-content-box").html(refreshdata);
                     let cartCount = $(".cartcount").text()
                     $(".notification").html($(".cartcount").text())
+                    fetch('/Product/RefreshCartTotal').then(res2 => res2.text())
+                        .then(totalData => {
+                            $(".cart-total").html(totalData);
+                        });
                 })
              
         })
@@ -161,21 +156,7 @@
     //        })
 
     //})
-    //$(document).on('click', '.page-link', function (event) {
-    //    event.preventDefault();
-    //    var url = $(this).attr('href');
-    //    var page = $(this).data('page');
-    //    loadProducts(url, page);
-    //    function loadProducts(url, page) {
-    //        $.get(url, { pageIndex: page })
-    //            .done(function (data) {
-    //                $('.shopList').html(data);
-    //            })
-    //            .fail(function (jqXHR, textStatus, errorThrown) {
-    //                alert('Error loading products: ' + textStatus + ' ' + errorThrown);
-    //            });
-    //    }
-    //});
+   
     
     $('.rangeFilter').click(function (e) {
         e.preventDefault();

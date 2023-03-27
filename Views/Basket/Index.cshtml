@@ -54,19 +54,8 @@
                             <div class="cart-calculate-items">
                                 <h3>Cart Totals</h3>
                                 <div class="table-responsive">
-                                    <table class="table">
-                                        <tr>
-                                            <td>Sub Total</td>
-                                            <td>$@(Model.Sum(b=>b.Count*b.Price))</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping</td>
-                                            <td>$0</td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Total</td>
-                                            <td class="total-amount">$@(Model.Sum(b=>b.Count*b.Price))</td>
-                                        </tr>
+                                    <table class="table cart-total">
+                                       @await Html.PartialAsync("_CartTotalPartial",Model)
                                     </table>
                                 </div>
                             </div>

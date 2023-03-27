@@ -24,7 +24,7 @@ namespace JUANBackendProject.Controllers
             {
                 Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
                 Products = await _context.Products.Where(s => s.IsDeleted == false).ToListAsync(),
-                //Settings = await _context.Settings.Where(s => s.Key == (string) && s.Value == (string))
+                Settings = await _context.Settings.ToDictionaryAsync(s => s.Key, s => s.Value)
 
             };
 
